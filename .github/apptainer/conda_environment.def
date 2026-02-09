@@ -1,0 +1,21 @@
+Bootstrap: docker
+
+From: condaforge/miniforge3 
+
+%files
+    .github/apptainer/environment_default.yml
+    environment.yml
+
+%post
+    ENV_NAME=$(head -1 environment.yml | cut -d' ' -f2)
+    echo ". /opt/conda/etc/profile.d/conda.sh && conda activate $ENV_NAME" >> $APPTAINER_ENVIRONMENT
+
+    . /opt/conda/etc/profile.d/conda.sh
+    mamba install -c conda-forge --yes -q conda-merge 
+    
+    conda-merge .github/apptainer/environment_default.yml environment.yml > environment_merged.yml
+    mamba env create -q -f environment_merged.yml
+    mamba clean --yes -q --all
+
+%runscript
+    exec "$@"
