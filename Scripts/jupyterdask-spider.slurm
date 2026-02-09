@@ -7,7 +7,7 @@
 #SBATCH --output=.jupyterdask/%x-%j.out
 
 APPTAINER_CMD="apptainer exec --bind /tmp,/scratch,/project,/run,/usr,/etc"
-APPTAINER_IMAGE="/project/remotesensing/Software/eo-summer-school/2025-09-03-eo-summer-school.sif"
+APPTAINER_IMAGE="oras://ghcr.io/shiyifang/ahn4_on_spider:latest"
 PYTHON="${APPTAINER_CMD} ${APPTAINER_IMAGE} python"
 
 export DASK_DISTRIBUTED__DASHBOARD__LINK="/proxy/{port}/status"
