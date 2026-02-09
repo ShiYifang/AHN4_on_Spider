@@ -1,0 +1,12 @@
+name: ahn4-on-spider 
+channels:
+ - conda-forge
+dependencies:
+ - python=3.12
+ - dask
+ - gdal
+ - pdal
+ - python-pdal
+ - pip
+ - pip:
+   - laserfarm 
