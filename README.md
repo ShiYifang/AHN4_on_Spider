@@ -1,4 +1,4 @@
-# Processing AHN4 using Laserfarm workflow on Spider
+# Processing AHN using Laserfarm workflow on Spider
  This repository contains the following instructions:
  1. Run [Laserfarm](https://github.com/eEcoLiDAR/Laserfarm) on JupyterLab server and Dask cluster on a SLURM system. Please follow [this repository](https://github.com/RS-DAT/JupyterDaskOnSLURM.git) to set up the JupyterLab server on Spider. Examples have been run on the [Spider data processing platform](https://spiderdocs.readthedocs.io) hosted by [SURF](https://www.surf.nl). 
  2. Download AHN4 data on Spider.
