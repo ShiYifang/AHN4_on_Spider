@@ -6,11 +6,16 @@
 #SBATCH --partition=normal
 #SBATCH --output=.jupyterdask/%x-%j.out
 
-APPTAINER_CMD="apptainer exec --bind /tmp,/scratch,/project,/run,/usr,/etc"
-APPTAINER_IMAGE="oras://ghcr.io/shiyifang/ahn4_on_spider:latest"
-PYTHON="${APPTAINER_CMD} ${APPTAINER_IMAGE} python"
-PORT=` shuf -i 8400-9400 -n 1 `
 
+APPTAINER_IMAGE="oras://ghcr.io/shiyifang/ahn4_on_spider:latest"
+
+# Bind all paths from host system within the container
+_DIRS=`/usr/bin/ls -1 / | /usr/bin/awk '!/dev/' | /usr/bin/sed 's/^/\//g' `
+export APPTAINER_BIND=`echo ${_DIRS} | /usr/bin/sed 's/ /,/g' `
+
+PYTHON="apptainer run ${APPTAINER_IMAGE} python"
+
+PORT=` shuf -i 8400-9400 -n 1 `
 echo "Run the following on your local machine: "
 echo "ssh -i /path/to/private/ssh/key -N -L 8888:` hostname -s `:${PORT} ${USER}@spider.surf.nl"
 
