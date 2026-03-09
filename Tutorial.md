@@ -51,18 +51,20 @@ You can check the `environment.yml` file and the job script file (`Scripts/jupyt
 
 `cat environment.yml`
 
-`cat Script/jupyterdask-spider.slurm`
+`cat Scripts/jupyterdask-spider.slurm`
 
 
 Now you can submit a job to launch your JupyterLab on Spider. Typing:
 
-`sbatch  jupyterdask-spider.slurm`
+```shell
+sbatch Scripts/jupyterdask-spider.slurm
+```
 
-Then you should be able to find the `.out` file under folder `.jupyterdask`
+Then you should be able to find the `.out` file under folder `JobOut`:
 
-`cd .jupyterdask`
-
-`ls`
+```shell
+ls JobOut
+```
 
 ![submit_job.png](./Figures/Tutorial/submit_job.png)
 
@@ -74,7 +76,7 @@ You can check the status of your submitted and not completed job(s) using:
 
 Check your job output:
 
-`cat jupyter-spider.slurm-[JOBID].out`
+`cat JobOut/jupyter-spider.slurm-[JOBID].out`
 
 ![cat_out_File1.png](./Figures/Tutorial/cat_out_File1.png)
 
