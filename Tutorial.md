@@ -34,7 +34,7 @@ You may enter your password if required. Note: In case you have multiple keys in
 
 Now you are at the `home` folder of the project space.
 
-## Set up JupyterLab using a container wrapper for Spider
+## Set up JupyterLab using containers on Spider
 
 Clone the `AHN4_on_Spider` repository in your home directory by typing in:
 
