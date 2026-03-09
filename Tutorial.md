@@ -24,7 +24,9 @@ NOTE: Please give your keys and account some time to sync after uploading your p
 
 After adding your ssh, you can login to Spider via a terminal (e.g. Git Bash) with the following command:
 
-`ssh [USERNAME]@spider.surf.nl`
+```
+ssh [USERNAME]@spider.surf.nl
+```
 
 You may enter your password if required. Note: In case you have multiple keys in your .ssh/ folder, you would need to specify the key that marches the .pub file you uploaded to the SURF CUA portal. For instance: `ssh -i ~/.ssh/mytestkey lidarac-test1@spider.surfsara.nl`. Once you see the following notice, congrats! You've just logged in to Spider.
 
@@ -36,22 +38,27 @@ Now you are at the `home` folder of the project space.
 
 Clone the `AHN4_on_Spider` repository in your home directory by typing in:
 
-
 ```python
 git clone https://github.com/ShiYifang/AHN4_on_Spider.git
 ```
 
 Change the directory to the `AHN4_on_Spider`:
 
-`cd AHN4_on_Spider`
+```shell
+cd AHN4_on_Spider
+```
 
 In this directory, you can find [environment file](environment.yml) that lists all the dependencies of Laserfarm workflow, the [job script](Scripts/jupyterdask-spider.slurm) that defines the cluster (e.g. number of cores, memory per worker) you are going to set up on SLURM, and the [Jupyter Notebooks](Scripts/Notebooks) of Laserfarm workflow that are used for processing country-wide ALS point cloud into GeoTIFF raster layers.
 
 You can check the `environment.yml` file and the job script file (`Scripts/jupyterdask-spider.slurm`) by typing the following command in your terminal:
 
-`cat environment.yml`
+```shell
+cat environment.yml
+```
 
-`cat Scripts/jupyterdask-spider.slurm`
+```shell
+cat Scripts/jupyterdask-spider.slurm
+```
 
 
 Now you can submit a job to launch your JupyterLab on Spider. Typing:
@@ -70,13 +77,23 @@ ls JobOut
 
 You can check the status of your submitted and not completed job(s) using:
 
-`squeue -u lidarac-test1[YOUR USER NAME]` or `squeue --job [JOBID]`
+```shell
+squeue -u $USER
+```
+
+or
+
+```shell
+squeue --job [JOBID]
+```
 
 ![jobid.png](./Figures/Tutorial/jobid.png)
 
 Check your job output:
 
-`cat JobOut/jupyter-spider.slurm-[JOBID].out`
+```shell
+cat JobOut/jupyter-spider.slurm-[JOBID].out
+```
 
 ![cat_out_File1.png](./Figures/Tutorial/cat_out_File1.png)
 
@@ -98,11 +115,15 @@ Then you will see the JupyterLab interface has been loaded, you can open the fir
 
 In the terminal, you can go to the folder containing the data prepared for this workshop by typing in:
 
-`cd /project/lidarac/Share/Workshop`
+```
+cd /project/lidarac/Share/Workshop
+```
 
 List all the subfolders within the “Workshop” folder. Note that all the intermediate results and subfolders will be using this directory as well.
 
-`ls`
+```
+ls
+```
 
 Under folder “laz”, you will find all the test data we are going to process using Laserfarm workflow.
 
