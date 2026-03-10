@@ -5,6 +5,7 @@
 #SBATCH --time=06:00:00
 #SBATCH --partition=normal
 #SBATCH --output=JobOut/%x-%j.out
+#SBATCH --reservation=lidarac
 
 APPTAINER_IMAGE="oras://ghcr.io/shiyifang/ahn4_on_spider:latest"
 
@@ -26,7 +27,7 @@ export DASK_LABEXTENSION__FACTORY__MODULE="dask_jobqueue"
 export DASK_LABEXTENSION__FACTORY__CLASS="SLURMCluster"
 export DASK_JOBQUEUE__SLURM__DEATH_TIMEOUT=60
 export DASK_JOBQUEUE__SLURM__PYTHON=${PYTHON}
-export DASK_JOBQUEUE__SLURM__JOB_EXTRA_DIRECTIVES="['--output', 'JobOut/%x-%j.out']"
+export DASK_JOBQUEUE__SLURM__JOB_EXTRA_DIRECTIVES="['--output', 'JobOut/%x-%j.out', '--reservation', 'lidarac']"
 export DASK_JOBQUEUE__SLURM__PROCESSES=4
 export DASK_JOBQUEUE__SLURM__CORES=4
 export DASK_JOBQUEUE__SLURM__MEMORY="48GiB"
