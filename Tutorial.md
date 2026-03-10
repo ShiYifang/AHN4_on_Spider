@@ -143,7 +143,7 @@ Now you are ready to run the workflow steps on SLURM using a cluster. You can al
 As you can see in the cluster, we have assigned 12 cores to the workers (4 cores per job, 12 GB memory for each core), that is why you can see 12 rows of yellow bars, meaning each core was handling one file and those files were processed by those 12 workers in parallel. **Note: for this workshop, we have reserved 12 cores in total for each participant. Given the number of participants and reserved resources, please only use maximum 12 workers during this hands-on session.**
 
 
-![dask_dashborad.png](./Figures/Tutorial/dask_dashborad.png)
+![dask_dashboard.png](./Figures/Tutorial/dask_dashboard.png)
 
 **You can use the same cluster to run the rest of the steps with separate notebooks.**
 
