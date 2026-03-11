@@ -160,3 +160,14 @@ failed = macro.get_failed_pipelines()
 ```
 
 which you can use to re-launch the only failed tasks by re-running the notebook.
+
+## Download processed folder to your local machine
+
+After finishing all the steps, you can download the output GeoTIFF files to your local machine for further inspection.
+
+In your terminal, type:
+
+```
+rsync -avP lidarac-student[ID]@spider.surfsara.nl:/project/lidarac/Share/users/folder_to_download/ ~/local_destination/
+
+```
